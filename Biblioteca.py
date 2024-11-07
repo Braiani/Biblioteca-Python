@@ -1,5 +1,5 @@
-from Livro import Livro
-from Usuario import Usuario
+from Model.Livro import Livro
+from Model.Usuario import Usuario
 
 class Biblioteca:
     acervo = []

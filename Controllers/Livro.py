@@ -1,22 +1,23 @@
+import sys
+sys.path[0] += '\\..'
 
+from Config.Database import Database
+from Model.Livro import Livro
 class ControllerLivro:
+
     def __init__(self) -> None:
-        pass
+        self.bd = Database()
     
-    def pode_emprestar(self):
-        return self.status == 'Disponível'
+    def inserirLivro(self, titulo, autor, genero, cod_livro):
+        livro = Livro(titulo, autor, genero, cod_livro)
+        self.bd.execute_query(livro.create(), commit=True)
 
-    def emprestar_livro(self, usuario):
-        if not self.pode_emprestar():
-            print("Livro indisponível para empréstimo")
-            return
-        
-        self.status = "Emprestado"
-        self.usuario = usuario
+    def procurarLivro(self):
+        livro = self.bd.execute_query(Livro.search('titulo', 'Casmurro', 'like'))
 
-    def devolver_livro(self):
-        if self.status != "Emprestado":
-            return
-        
-        self.status = "Disponível"
-        self.usuario = None
+        print(livro)
+
+
+
+# ControllerLivro().inserirLivro("Dom Casmurro", "Machado de Assis", "Suspense", 123)
+ControllerLivro().procurarLivro()
