@@ -1,26 +1,26 @@
 class Usuario:
     MAX_EMPRESTIMO = 5
 
-    def __init__(self, login, senha, nome) -> None:
-        self.login = login
-        self.senha = senha
+    def __init__(self, nome, cpf,telefone) -> None:
         self.nome = nome
+        self.cpf = cpf
+        self.telefone = telefone
         self.livros = []
     
+    def create(self):
+        return f'insert into usuario(nome,cpf,telefone) values ("{self.nome}", "{self.cpf}", "{self.telefone}");'
     
-    def pode_emprestar(self):
-        return len(self.livros) < self.MAX_EMPRESTIMO
+    @staticmethod
+    def search(coluna, valor, operador = "="):
+        consulta = valor
+        if operador == "like":
+            consulta = f"%{valor}%"
+        return f'select * from usuario where {coluna} {operador} "{consulta}";'
     
-    def emprestar(self, livro):
-        if not self.pode_emprestar:
-            print("Usuário não pode realizar empréstimo!")
-            return
-        
-        self.livros.append(livro)
-
-    def valida_login(self, login, senha):
-        if login == self.login and senha == self.senha:
-            print(f"Seja bem-vindo {self.nome}!")
-            return True
-        
-        return False
+    @staticmethod
+    def update(coluna, novo_valor, where):
+        return f'update usuario set {coluna} = "{novo_valor}" where {coluna} = "{where}";'
+    
+    @staticmethod
+    def delete(cpf):
+        return f'delete from usuario where cpf = {cpf}'
