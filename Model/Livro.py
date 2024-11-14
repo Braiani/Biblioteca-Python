@@ -17,9 +17,9 @@ class Livro:
         return f'select * from livro where {coluna} {operador} "{consulta}";'
     
     @staticmethod
-    def update(coluna, novo_valor, where):
-        return f'update livro set {coluna} = "{novo_valor}" where {coluna} = "{where}";'
+    def update(coluna, novo_valor, identificador, where):
+        return f'update livro set {coluna} = "{novo_valor}" where {identificador} = "{where}";'
     
     @staticmethod
-    def delete(titulo):
-        return f'delete from livro where titulo = {titulo}'
+    def delete(coluna, valor):
+        return f'delete from livro where {coluna} = {valor}'

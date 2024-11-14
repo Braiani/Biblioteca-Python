@@ -14,16 +14,16 @@ class ControllerLivro:
 
         print(livro)
 
-    def atualizarLivro(self, coluna, novo_valor, where):
-        self.bd.execute_query(Livro.update(coluna, novo_valor, where), commit=True)
+    def atualizarLivro(self, coluna, novo_valor, identificador, where):
+        self.bd.execute_query(Livro.update(coluna, novo_valor, identificador, where), commit=True)
 
-    def deletarLivro(self, cod_livro):
-        self.bd.execute_query(Livro.delete(cod_livro), commit=True)
+    def deletarLivro(self, coluna, cod_livro):
+        self.bd.execute_query(Livro.delete(coluna, cod_livro), commit=True)
 
 ControllerLivro.__name__ = "ControllerLivro"
 
 
 # ControllerLivro().inserirLivro("Dom Casmurro", "Machado de Assis", "Suspense", 123)
 ControllerLivro().procurarLivro('titulo', 'Casmurro', 'like')
-# ControllerLivro().atualizarLivro('titulo', 'Dom Casmurro', 'Dom Casmurro')
-# ControllerLivro().deletarLivro(123)
+# ControllerLivro().atualizarLivro('titulo', 'Dom Casmurro', 'id', '123')
+# ControllerLivro().deletarLivro('id', 1)
