@@ -1,6 +1,3 @@
-import sys
-sys.path[0] += '\\..'
-
 from Config.Database import Database
 from Model.Livro import Livro
 class ControllerLivro:
@@ -23,6 +20,7 @@ class ControllerLivro:
     def deletarLivro(self, cod_livro):
         self.bd.execute_query(Livro.delete(cod_livro), commit=True)
 
+ControllerLivro.__name__ = "ControllerLivro"
 
 
 # ControllerLivro().inserirLivro("Dom Casmurro", "Machado de Assis", "Suspense", 123)

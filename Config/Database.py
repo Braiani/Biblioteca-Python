@@ -76,3 +76,5 @@ class Database:
             return False
         finally:
             self.desconectar()
+
+Database.__name__ = "Database"
