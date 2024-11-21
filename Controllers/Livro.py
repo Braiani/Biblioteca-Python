@@ -24,6 +24,6 @@ ControllerLivro.__name__ = "ControllerLivro"
 
 
 # ControllerLivro().inserirLivro("Dom Casmurro", "Machado de Assis", "Suspense", 123)
-ControllerLivro().procurarLivro('titulo', 'Casmurro', 'like')
+# ControllerLivro().procurarLivro('titulo', 'Casmurro', 'like')
 # ControllerLivro().atualizarLivro('titulo', 'Dom Casmurro', 'id', '123')
 # ControllerLivro().deletarLivro('id', 1)

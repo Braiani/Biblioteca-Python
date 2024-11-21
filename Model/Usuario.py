@@ -1,14 +1,15 @@
 class Usuario:
     MAX_EMPRESTIMO = 5
 
-    def __init__(self, nome, cpf,telefone) -> None:
+    def __init__(self, nome, cpf,telefone, senha) -> None:
         self.nome = nome
         self.cpf = cpf
         self.telefone = telefone
+        self.senha = senha
         self.livros = []
     
     def create(self):
-        return f'insert into usuario(nome,cpf,telefone) values ("{self.nome}", "{self.cpf}", "{self.telefone}");'
+        return f'insert into usuario(nome,cpf,telefone,senha) values ("{self.nome}", "{self.cpf}", "{self.telefone}", "{self.senha}");'
     
     @staticmethod
     def search(coluna, valor, operador = "="):

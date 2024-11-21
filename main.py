@@ -4,21 +4,17 @@ from Model.Livro import Livro
 from Biblioteca import Biblioteca
 from Controllers.Livro import ControllerLivro
 from Utils.Helpers import Helpers
-from PyQt6.uic import load_ui
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QApplication,QMainWindow
-
-
-class MainWindows(QMainWindow):
-    def __init__(self, ui_file) -> None:
-        super().__init__()
-        load_ui.loadUi(ui_file, self)
+from PyQt6.QtWidgets import QApplication
+from View.CadastrarLivro import CadastrarLivroWindow
+from View.CadastrarUsuario import CadastrarUsuarioWindow
 
 
 if __name__ == "__main__":
-    ui_file = Helpers.get_base_path() + "/Ui/cadastrar_livro.ui"
+    ui_cadastrar_livro = Helpers.get_base_path() + "/Ui/cadastrar_livro.ui"
+    ui_cadastrar_usuario = Helpers.get_base_path() + "/Ui/cadastrar_usuario.ui"
 
     app = QApplication(sys.argv)
-    window = MainWindows(ui_file)
+    window = CadastrarLivroWindow(ui_cadastrar_livro)
+    # window = CadastrarUsuarioWindow(ui_cadastrar_usuario)
     window.show()
     sys.exit(app.exec())
