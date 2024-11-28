@@ -1,9 +1,8 @@
-from Config.Database import Database
 from Services.LoginService import LoginService
+from Services.UsuarioService import UsuarioService
 
 class ControllerUsuario:
     def __init__(self) -> None:
-        self.bd = Database()
         self.usuario_logado = None
     
     def logar(self, usuario, senha):
@@ -22,6 +21,11 @@ class ControllerUsuario:
             return False
         
         return self.usuario_logado
+    
+    def cadastrar(self, nome, cpf, telefone, senha):
+        usuarioService = UsuarioService(nome=nome, cpf=cpf, telefone=telefone, senha=senha)
+        return usuarioService.cadastrar()
+
         
     
 ControllerUsuario.__name__ = "ControllerUsuario"

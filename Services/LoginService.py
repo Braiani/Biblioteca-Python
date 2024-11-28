@@ -1,11 +1,11 @@
 from Model.Usuario import Usuario
-from Config.Database import Database
+from Services.BaseService import BaseService
 
-class LoginService:
+class LoginService(BaseService):
     def __init__(self, usuario, senha) -> None:
+        super().__init__()
         self.usuario = usuario
         self.senha = senha
-        self.bd = Database()
 
 
     def verificar_login(self):
