@@ -12,11 +12,28 @@ class Usuario:
         return f'insert into usuario(nome,cpf,telefone,senha) values ("{self.nome}", "{self.cpf}", "{self.telefone}", "{self.senha}");'
     
     @staticmethod
-    def search(coluna, valor, operador = "="):
+    def begin_search():
+        return f'select * from usuario where '
+
+    @staticmethod
+    def and_search(coluna, valor, operador = "=", operador_logico = True):
         consulta = valor
         if operador == "like":
             consulta = f"%{valor}%"
-        return f'select * from usuario where {coluna} {operador} "{consulta}";'
+        logical = ''
+        if operador_logico:
+            logical = 'and'
+        return f'{logical} {coluna} {operador} "{consulta}" '
+    
+    @staticmethod
+    def or_search(coluna, valor, operador = "=", operador_logico = True):
+        consulta = valor
+        if operador == "like":
+            consulta = f"%{valor}%"
+        logical = ''
+        if operador_logico:
+            logical = 'and'
+        return f'{logical} {coluna} {operador} "{consulta}" '
     
     @staticmethod
     def update(coluna, novo_valor, where):

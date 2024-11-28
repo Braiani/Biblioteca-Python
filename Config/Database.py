@@ -54,8 +54,6 @@ class Database:
             self.conexao.close()
             self.conexao = None
             self.cursor = None
-
-        print('Desconectado com sucesso!')
     
     def execute_query(self, query, params:None|list = None, commit:bool = False):
         try:

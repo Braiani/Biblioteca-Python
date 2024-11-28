@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication,QMainWindow
+from PyQt6.QtWidgets import QMainWindow
 from PyQt6.uic import load_ui
 
 class CadastrarUsuarioWindow(QMainWindow):

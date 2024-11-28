@@ -125,8 +125,11 @@
      </item>
      <item>
       <widget class="QLabel" name="label_msg">
+       <property name="styleSheet">
+        <string notr="true">color:red;</string>
+       </property>
        <property name="text">
-        <string> </string>
+        <string/>
        </property>
       </widget>
      </item>
