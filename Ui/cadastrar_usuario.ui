@@ -119,33 +119,43 @@
       </widget>
      </item>
      <item row="2" column="0" colspan="2">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Usuário *</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QLineEdit" name="input_usuario"/>
+     </item>
+     <item row="4" column="0" colspan="2">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>CPF *</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0" colspan="2">
+     <item row="5" column="0" colspan="2">
       <widget class="QLineEdit" name="input_cpf"/>
      </item>
-     <item row="4" column="0" colspan="2">
+     <item row="6" column="0" colspan="2">
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string>Telefone *</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="0" colspan="2">
+     <item row="7" column="0" colspan="2">
       <widget class="QLineEdit" name="input_telefone"/>
      </item>
-     <item row="7" column="0" colspan="2">
+     <item row="9" column="0" colspan="2">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Os campos com * são obrigatórios</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="0" colspan="2">
+     <item row="8" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
@@ -208,7 +218,7 @@
      <x>0</x>
      <y>0</y>
      <width>540</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuLivros">

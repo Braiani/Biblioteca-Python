@@ -25,7 +25,10 @@ class TelaPrincipal(QMainWindow):
         self.lbl_bem_vindo.setText(label.replace('{usuario}', self.usuario.get('nome')))
 
     def abrir_tela_cadastro_usuario(self):
-        self.cadastrar_usuario_window.show()
+        if self.usuario.get('is_admin'):
+            self.cadastrar_usuario_window.show()
+        else:
+            print('Usuario nao tem permissao para acessar essa tela')
 
     def abrir_tela_cadastro_livro(self):
         self.cadastrar_livro_window.show()

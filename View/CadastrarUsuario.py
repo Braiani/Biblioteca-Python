@@ -12,6 +12,7 @@ class CadastrarUsuarioWindow(QMainWindow):
     def cadastrar(self):
         self.lbl_mensagem.setText('')
         nome = self.input_nome.text()
+        usuario = self.input_usuario.text()
         cpf = self.input_cpf.text()
         telefone = self.input_telefone.text()
         senha = self.input_senha.text()
@@ -29,7 +30,7 @@ class CadastrarUsuarioWindow(QMainWindow):
             self.lbl_mensagem.setText('Os campos de Senha e confirmar senha devem ser iguais')
             return
         
-        cadastrar_usuario = usuarioController.cadastrar(nome=nome, cpf=cpf, telefone=telefone, senha=senha)
+        cadastrar_usuario = usuarioController.cadastrar(nome=nome, usuario=usuario, cpf=cpf, telefone=telefone, senha=senha)
         if cadastrar_usuario:
             if cadastrar_usuario.get('status'):
                 color = 'green'
@@ -38,6 +39,15 @@ class CadastrarUsuarioWindow(QMainWindow):
 
             self.lbl_mensagem.setStyleSheet(f'color:{color}')
             self.lbl_mensagem.setText(cadastrar_usuario.get('mensagem'))
+
+            if cadastrar_usuario.get('status'):
+                self.input_nome.setText('')
+                self.input_usuario.setText('')
+                self.input_cpf.setText('')
+                self.input_telefone.setText('')
+                self.input_senha.setText('')
+                self.input_confirmar_senha.setText('')
+
             return
 
         self.lbl_mensagem.setStyleSheet('color:red')
