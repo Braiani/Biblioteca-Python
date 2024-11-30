@@ -2,18 +2,13 @@ from Services.BaseService import BaseService
 from Model.Livro import Livro
 
 class LivroService(BaseService):
-    def __init__(self, titulo, autor, genero, codigo) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        self.titulo = titulo
-        self.autor = autor
-        self.genero = genero
-        self.codigo = codigo
 
+    def cadastrar(self, titulo, autor, genero, codigo):
+        livro = Livro(titulo, autor, genero, codigo)
 
-    def cadastrar(self):
-        livro = Livro(self.titulo, self.autor, self.genero, self.codigo)
-
-        if self.buscar_livro(self.codigo):
+        if self.buscar_livro(codigo):
             return {
                 'status': False,
                 'message': 'Livro já cadastrado'
@@ -29,3 +24,6 @@ class LivroService(BaseService):
         livro = Livro.search('isbn', codigo)
 
         return self.bd.execute_query(livro)
+    
+    def listar_todos(self):
+        return self.bd.execute_query(Livro.search_all())

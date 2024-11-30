@@ -17,6 +17,10 @@ class Livro:
         return f'select * from livro where {coluna} {operador} "{consulta}";'
     
     @staticmethod
+    def search_all():
+        return 'select * from livro;'
+
+    @staticmethod
     def update(coluna, novo_valor, identificador, where):
         return f'update livro set {coluna} = "{novo_valor}" where {identificador} = "{where}";'
     
