@@ -33,7 +33,7 @@ class Usuario:
             consulta = f"%{valor}%"
         logical = ''
         if operador_logico:
-            logical = 'and'
+            logical = 'or'
         return f'{logical} {coluna} {operador} "{consulta}" '
     
     @staticmethod

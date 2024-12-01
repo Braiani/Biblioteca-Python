@@ -27,3 +27,12 @@ class LivroService(BaseService):
     
     def listar_todos(self):
         return self.bd.execute_query(Livro.search_all())
+    
+    def procurar(self, valor):
+        pesquisa = Livro.begin_search()
+        pesquisa += Livro.or_search('titulo', valor, 'like', operador_logico=False)
+        pesquisa += Livro.or_search('autor', valor, 'like')
+        pesquisa += Livro.or_search('genero', valor, 'like')
+        pesquisa += Livro.or_search('isbn', valor, 'like')
+
+        return self.bd.execute_query(pesquisa)

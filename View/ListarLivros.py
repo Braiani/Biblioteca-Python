@@ -10,15 +10,32 @@ class ListarLivrosWindow(QMainWindow):
         self.livroController = ControllerLivro()
         
         self.atualizar_lista_livros()
+        self.btn_procurar.clicked.connect(self.pesquisar_livro)
     
     def atualizar_lista_livros(self):
         self.livros = self.livroController.listarTodosLivros()
 
         livros_adicionar = []
 
+        self.lista_livros_widget.clear()
         for livro in self.livros:
             livros_adicionar.append(f"Código: {livro.get('isbn')}; Título: {livro.get('titulo')}; Autor: {livro.get('autor')}; Gênero: {livro.get('genero')}; Status: {livro.get('status')}")
         
+        self.lista_livros_widget.addItems(livros_adicionar)
+
+
+    def pesquisar_livro(self):
+        pesquisa = self.input_pesquisa.text()
+
+        if pesquisa == '':
+            self.atualizar_lista_livros()
+            return
+        
+        self.lista_livros_widget.clear()
+        livros_adicionar = []
+        for livro in self.livroController.procurarLivro(pesquisa):
+            livros_adicionar.append(f"Código: {livro.get('isbn')}; Título: {livro.get('titulo')}; Autor: {livro.get('autor')}; Gênero: {livro.get('genero')}; Status: {livro.get('status')}")
+
         self.lista_livros_widget.addItems(livros_adicionar)
     
     def show(self):

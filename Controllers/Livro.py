@@ -11,10 +11,9 @@ class ControllerLivro:
         return self.livroService.listar_todos()
         
 
-    def procurarLivro(self, coluna, valor, operador = "="):
-        livro = self.bd.execute_query(Livro.search(coluna=coluna, valor=valor, operador=operador))
+    def procurarLivro(self, valor):
+        return self.livroService.procurar(valor)
 
-        print(livro)
 
     def atualizarLivro(self, coluna, novo_valor, identificador, where):
         self.bd.execute_query(Livro.update(coluna, novo_valor, identificador, where), commit=True)

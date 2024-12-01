@@ -17,6 +17,30 @@ class Livro:
         return f'select * from livro where {coluna} {operador} "{consulta}";'
     
     @staticmethod
+    def begin_search():
+        return f'select * from livro where '
+
+    @staticmethod
+    def and_search(coluna, valor, operador = "=", operador_logico = True):
+        consulta = valor
+        if operador == "like":
+            consulta = f"%{valor}%"
+        logical = ''
+        if operador_logico:
+            logical = 'and'
+        return f'{logical} {coluna} {operador} "{consulta}" '
+    
+    @staticmethod
+    def or_search(coluna, valor, operador = "=", operador_logico = True):
+        consulta = valor
+        if operador == "like":
+            consulta = f"%{valor}%"
+        logical = ''
+        if operador_logico:
+            logical = 'or'
+        return f'{logical} {coluna} {operador} "{consulta}" '
+    
+    @staticmethod
     def search_all():
         return 'select * from livro;'
 
