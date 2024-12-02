@@ -29,19 +29,6 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QPushButton" name="btn_emprestar_livro">
-       <property name="font">
-        <font>
-         <family>Comic Sans MS</family>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Emprestar Livro</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="btn_cadastrar_livro">
        <property name="font">
@@ -52,6 +39,32 @@
        </property>
        <property name="text">
         <string>Cadastrar livro</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="btn_listar_livros">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Listar Livro</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="btn_emprestar_livro">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Emprestar Livro</string>
        </property>
       </widget>
      </item>
@@ -68,8 +81,8 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="btn_listar_livros">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="btn_listar_ususarios">
        <property name="font">
         <font>
          <family>Comic Sans MS</family>
@@ -77,7 +90,20 @@
         </font>
        </property>
        <property name="text">
-        <string>Listar Livro</string>
+        <string>Listar Usuários</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>

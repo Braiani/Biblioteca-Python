@@ -11,6 +11,11 @@ class ListarLivrosWindow(QMainWindow):
         
         self.atualizar_lista_livros()
         self.btn_procurar.clicked.connect(self.pesquisar_livro)
+        self.lista_livros_widget.itemDoubleClicked.connect(self.emprestar_livro)
+
+    def emprestar_livro(self):
+        codigo_livro = self.lista_livros_widget.currentItem().text().split(';')[0].split(': ')[1]
+        print(codigo_livro)
     
     def atualizar_lista_livros(self):
         self.livros = self.livroController.listarTodosLivros()
