@@ -55,7 +55,7 @@ class Database:
             self.conexao = None
             self.cursor = None
     
-    def execute_query(self, query, params:None|list = None, commit:bool = False):
+    def execute_query(self, query, params:None|list = None, commit:bool = False, fetchOne = False):
         try:
             self.conectar()
 
@@ -66,7 +66,10 @@ class Database:
                 self.conexao.commit()
                 return cursor.rowcount
             else:
-                records = cursor.fetchall()
+                if fetchOne:
+                    records = cursor.fetchone()
+                else:
+                    records = cursor.fetchall()
                 return records
             
         except Error as err:

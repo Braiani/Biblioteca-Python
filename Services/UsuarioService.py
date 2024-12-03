@@ -2,18 +2,13 @@ from Model.Usuario import Usuario
 from Services.BaseService import BaseService
 
 class UsuarioService(BaseService):
-    def __init__(self, nome, usuario, cpf, telefone, senha) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        self.nome = nome
-        self.usuario = usuario
-        self.cpf = cpf
-        self.telefone = telefone
-        self.senha = senha
     
-    def cadastrar(self):
-        userModel = Usuario(nome=self.nome, usuario=self.usuario, cpf=self.cpf, telefone=self.telefone, senha=self.senha)
+    def cadastrar(self, nome, usuario, cpf, telefone, senha):
+        userModel = Usuario(nome=nome, usuario=usuario, cpf=cpf, telefone=telefone, senha=senha)
         
-        if self.buscar_usuario():
+        if self.buscar_usuario('cpf', cpf):
             return {
                 'mensagem': 'Usuario ja cadastrado',
                 'status': False
@@ -33,8 +28,12 @@ class UsuarioService(BaseService):
             'status': True
         }
     
-    def buscar_usuario(self):
+    def buscar_usuario(self, campo, valor):
         userModel = Usuario.begin_search()
-        userModel += Usuario.and_search('cpf', self.cpf, '=', operador_logico=False)
+        userModel += Usuario.and_search(campo, valor, '=', operador_logico=False)
         
         return self.bd.execute_query(userModel)
+    
+    
+    def listar_todos(self):
+        return self.bd.execute_query

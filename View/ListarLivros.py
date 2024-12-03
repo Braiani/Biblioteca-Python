@@ -1,7 +1,6 @@
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.uic import load_ui
 from Controllers.Livro import ControllerLivro
-from Model.Livro import Livro
 
 class ListarLivrosWindow(QMainWindow):
     def __init__(self, ui_file) -> None:
@@ -14,8 +13,7 @@ class ListarLivrosWindow(QMainWindow):
         self.lista_livros_widget.itemDoubleClicked.connect(self.emprestar_livro)
 
     def emprestar_livro(self):
-        codigo_livro = self.lista_livros_widget.currentItem().text().split(';')[0].split(': ')[1]
-        print(codigo_livro)
+        self.livroController.emprestarLivro(self.lista_livros_widget.currentItem().text().split(';')[0].split(': ')[1])
     
     def atualizar_lista_livros(self):
         self.livros = self.livroController.listarTodosLivros()

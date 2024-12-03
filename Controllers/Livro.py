@@ -10,15 +10,10 @@ class ControllerLivro:
     def listarTodosLivros(self):
         return self.livroService.listar_todos()
         
-
     def procurarLivro(self, valor):
         return self.livroService.procurar(valor)
-
-
-    def atualizarLivro(self, coluna, novo_valor, identificador, where):
-        self.bd.execute_query(Livro.update(coluna, novo_valor, identificador, where), commit=True)
-
-    def deletarLivro(self, coluna, cod_livro):
-        self.bd.execute_query(Livro.delete(coluna, cod_livro), commit=True)
+    
+    def emprestarLivro(self, codigo):
+        return self.livroService.emprestar_livro(codigo=codigo)
 
 ControllerLivro.__name__ = "ControllerLivro"

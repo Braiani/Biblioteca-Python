@@ -23,8 +23,11 @@ class ControllerUsuario:
         return self.usuario_logado
     
     def cadastrar(self, nome, usuario, cpf, telefone, senha):
-        usuarioService = UsuarioService(nome=nome, usuario=usuario, cpf=cpf, telefone=telefone, senha=senha)
-        return usuarioService.cadastrar()
+        usuarioService = UsuarioService()
+        return usuarioService.cadastrar(nome=nome, usuario=usuario, cpf=cpf, telefone=telefone, senha=senha)
+    
+    def listarTodosUsuarios(self):
+        return 
 
         
     
