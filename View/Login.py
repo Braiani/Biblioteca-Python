@@ -27,7 +27,7 @@ class LoginWindow(QMainWindow):
             return
 
         if usuarioController.logar(usuario=username, senha=senha):
-            self.main_window.setar_usuario_logado(usuario=usuarioController.recupera_usuario_logado()[0])
+            self.main_window.setar_usuario_logado(usuario=usuarioController.recupera_usuario_logado())
             self.main_window.show()
             self.close()
 

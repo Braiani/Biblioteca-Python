@@ -4,6 +4,7 @@ from Services.UsuarioService import UsuarioService
 class ControllerUsuario:
     def __init__(self) -> None:
         self.usuario_logado = None
+        self.usuarioService = UsuarioService()
     
     def logar(self, usuario, senha):
         loginService = LoginService(usuario=usuario, senha=senha)
@@ -23,11 +24,10 @@ class ControllerUsuario:
         return self.usuario_logado
     
     def cadastrar(self, nome, usuario, cpf, telefone, senha):
-        usuarioService = UsuarioService()
-        return usuarioService.cadastrar(nome=nome, usuario=usuario, cpf=cpf, telefone=telefone, senha=senha)
+        return self.usuarioService.cadastrar(nome=nome, usuario=usuario, cpf=cpf, telefone=telefone, senha=senha)
     
     def listarTodosUsuarios(self):
-        return 
+        return self.usuarioService.listar_todos()
 
         
     

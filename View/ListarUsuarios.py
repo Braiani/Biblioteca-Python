@@ -14,3 +14,4 @@ class ListarUsuariosWindow(QMainWindow):
     
     def atualizar_lista_usuarios(self):
         self.usuarios = self.usuarioController.listarTodosUsuarios()
+        # for usuario in self.usuarios:

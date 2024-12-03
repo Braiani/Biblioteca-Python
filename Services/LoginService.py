@@ -13,7 +13,7 @@ class LoginService(BaseService):
         userModel += Usuario.and_search('usuario',self.usuario, '=', operador_logico=False)
         userModel += Usuario.and_search('senha',self.senha, '=')
         
-        usuarios = self.bd.execute_query(userModel)
+        usuarios = self.bd.execute_query(userModel, fetchOne=True)
         
         if not usuarios:
             return False

@@ -36,4 +36,4 @@ class UsuarioService(BaseService):
     
     
     def listar_todos(self):
-        return self.bd.execute_query
+        return self.bd.execute_query(Usuario.search_all())

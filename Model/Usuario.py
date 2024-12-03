@@ -13,6 +13,10 @@ class Usuario:
         return f'insert into usuario(nome,usuario,cpf,telefone,senha) values ("{self.nome}", "{self.usuario}", "{self.cpf}", "{self.telefone}", "{self.senha}");'
     
     @staticmethod
+    def search_all():
+        return 'select * from usuario'
+
+    @staticmethod
     def begin_search():
         return f'select * from usuario where '
 
